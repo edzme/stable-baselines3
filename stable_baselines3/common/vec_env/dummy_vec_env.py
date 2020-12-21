@@ -88,7 +88,9 @@ class DummyVecEnv(VecEnv):
 
     def _save_obs(self, env_idx: int, obs: VecEnvObs) -> None:
         for key in self.keys:
+            print(f'key is {key}',flush=True)
             if key is None:
+                print('it is none!')
                 self.buf_obs[key][env_idx] = obs
             else:
                 self.buf_obs[key][env_idx] = obs[key]
